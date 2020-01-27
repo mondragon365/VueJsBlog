@@ -21,7 +21,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "codificacion" */ '../views/Codificacion.vue')
   },
   {
-    path: '/codificacion_update',
+    path: '/codificacion_update/:id',
     name: 'codificacion_update',  
     component: () => import(/* webpackChunkName: "codificacion_update" */ '../components/Codificacion_update.vue')
   }

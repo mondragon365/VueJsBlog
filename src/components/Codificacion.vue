@@ -17,7 +17,7 @@
           <td>{{codificacion.id}}</td>          
           <td>{{codificacion.title}}</td>          
           <td>{{codificacion.completed}}</td>    
-          <td> <button v-on:click="Edit">Editar</button></td>      
+          <td> <button v-on:click="Edit(codificacion.id)">Editar</button></td>      
         </tr>        
       </tbody>
     </table>    
@@ -26,14 +26,11 @@
 
 <script>
 import CodificationService from '../services/Codification';
-
-//import Home from '../views/Home.vue'
-//const axios = require('axios');
 const srvCodification = new CodificationService();
 
 export default {
   name: 'Codificacion',
-    data: function () {
+  data: function () {
     return {
       count: 10,
       codificaciones:[]
@@ -49,8 +46,8 @@ export default {
       var response = await srvCodification.getAll();
       this.codificaciones = response.data
     },
-    Edit: function () {
-      this.$router.push('codificacion_update')       
+    Edit: function (id) {
+      this.$router.push('codificacion_update/'+String(id))       
     }
   }
 }
